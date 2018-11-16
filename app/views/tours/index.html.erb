@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag    'tours', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+ <h3> Filtrar por </h3>
+ <%= form_tag tours_path, method: "get", remote: true do %>
+ <p>
+  <%= text_field_tag :buscar %>
+   <%= submit_tag "Buscar", name: "" %>
+    </p>
+  <% end %>
+
+  <%= link_to 'New Tour', new_tour_path %>
+
+  <div id="tours">
+    <%= render @tourstodos %>
+  </div>

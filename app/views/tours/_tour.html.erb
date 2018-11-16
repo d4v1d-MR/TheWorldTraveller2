@@ -1,0 +1,10 @@
+<%= stylesheet_link_tag    'tours', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<%= div_for tour do %>
+<div class="rowTours">
+<div class="column">
+<%= link_to image_tag(tour.image.thumb.url, :class => "img-rounded", :style => "width: 100%"), tour %>
+<h3 style="font-family: 'Comic Sans MS'; margin-top: 0; text-align: center; border: 2px solid black; background-color: lightgray"><%= tour.title %></h3>
+<%end%>
+</div>
+</div>

@@ -1,0 +1,78 @@
+
+<section style="margin-top: 20px">
+  <article class="contactInfo">
+  <div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Somos')" id="defaultOpen">¿Quiénes somos?</button>
+  <button class="tablinks" onclick="openCity(event, 'Estamos')">¿Dónde estamos?</button>
+  <button class="tablinks" onclick="openCity(event, 'Ofrecemos')">¿Qué ofrecemos?</button>
+  <button class="tablinks" onclick="openCity(event, 'Atencion')">Atención al usuario</button>
+  </div>
+
+  <div id="Somos" class="tabcontent">
+  <h3>The World Traveller</h3>
+  <p>Hemos creado una pequeña empresa cuyo objetivo es otorgar información a nuestros usuarios
+  sobre ciudades del mundo.</p>
+  </div>
+
+  <div id="Estamos" class="tabcontent">
+  <h3>Las Palmas de Gran Canaria</h3>
+  <p>C/ Republica Dominicana, nº 24, 2 planta</p>
+  <p><b>Horario:</b> </p>
+  <p><b>L-V:</b> 09:00-12:00 / 14:00-17:00</p>
+  <p><b>Sábado:</b> 09:00-12:00</p>
+  </div>
+
+  <div id="Ofrecemos" class="tabcontent">
+  <h3>Guía de viajes</h3>
+  <p>Mostramos un servicio de tours, recomendaciones y sitios para ver a cualquier aventurero que quiera
+  conocer previamente la ciudad que visite o decidirse por cuál será su próximo destino.</p>
+  </div>
+
+  <div id="Atencion" class="tabcontent">
+  <h3>Puesto de información</h3>
+  <p>Si desea recibir información adicional no dude en contactar con nosotros. Para ello, por favor, rellene el
+  formulario de la derecha.</p>
+  </div>
+  </article>
+
+  <article class="contactInfo" style="text-align: center; border: solid sandybrown; border-radius: 12px;
+  background-color: lightyellow">
+    <h3 style="color: black; font-size: 21px">¿Quieres recibir información personalizada?</h3>
+    <p style="color: black;">Rellene este formulario indicando cuál es su consulta/petición.</p>
+    <form class="formActive">
+    <div style="float: left; margin-left: 25%">
+                         <input style="text-align: left; margin-bottom: 10px; margin-right: 10px"
+                                                     type="text" placeholder="Nombre" required>
+                         <input style="text-align: left" type="text" placeholder="Apellidos" required>
+    </div>
+    <br>
+    <div style="float: left; margin-left: 25%">
+                         <input style="text-align: left; margin-bottom: 10px; margin-right: 10px" type="email" placeholder="Correo" required>
+                         <input type="number" min="1" placeholder="Edad" required>
+    </div>
+    <br>
+    <textarea rows="4" cols="50" placeholder="Mensaje..." required></textarea>
+    <br>
+    <button style="margin-bottom: 10px; color: black" type="submit" class="btn btn-warning">Enviar</button>
+    </form>
+  </article>
+  </section>
+
+
+  <script>
+  function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+  tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+  tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+  }
+
+  document.getElementById("defaultOpen").click();
+  </script>

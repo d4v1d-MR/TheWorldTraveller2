@@ -1,0 +1,79 @@
+<%= stylesheet_link_tag    'cities', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<section>
+
+<div class="slideshow-container" style="padding-top: 20px; text-align: center">
+<div class="mySlides">
+<img class="img-thumbnail" <%= image_tag("madrid.jpg", :style =>" width: 70%")%>
+</div>
+<div class="mySlides">
+<img class="img-thumbnail" <%= image_tag("paris.jpg", :style =>" width: 70%")%>
+</div>
+<div class="mySlides">
+<img class="img-thumbnail" <%= image_tag("praga.jpg", :style =>" width: 70%")%>
+</div>
+<div class="mySlides">
+<img class="img-thumbnail" <%= image_tag("lisboa.jpg", :style =>" width: 70%")%>
+</div>
+</div>
+<br>
+
+  <div style="text-align: center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  </div>
+  </section>
+
+<script>
+  showSlides()
+</script>
+
+
+<div class="texto1Ciudades">
+  <h3 style="text-align: center">Elige una ciudad favorita y comienza a planificar un gran viaje</h3>
+</div>
+
+  <div class="rowCities">
+  <% @cities.each do |city| %>
+  <div class="column">
+  <div class="info">
+          <%=image_tag(city.image, :class => "img-rounded", :style => "width: 100%") %>
+          <div class="middle">
+            <div class="text"><p
+            cursor: pointer"><%= link_to city.title, city, :style => "color: black" %></p></div>
+          </div>
+        </div>
+      </div>
+       <% end %>
+    </div>
+<br>
+
+  <section>
+  <article class="articleTwoIndex">
+  <h3 style="text-align: center">Descubre nuestros emocionantes tours grupales o personalizados</h3>
+  </article>
+  </section>
+
+  <section style="text-align: center">
+    <article class="indexTours" style="background-color: #d5e1df">
+      <h3><%= link_to "¡¡Free Tour!!", tours_path, :style => "color: black; text-decoration: none" %></h3>
+      <p>Vive una experiencia inolvidable, comparte paisajes únicos en compañía con otros aventureros<br>
+      y disfruta al máximo.</p>
+      <p>Satisfacción 100% garantizada</p>
+      <p>Aforo máximo 20 personas</p>
+    </article>
+
+    <article class="indexTours" style="background-color: #e3eaa7">
+      <h3><%= link_to "Tours privados", tours_path, :style => "color: black; text-decoration: none"%></h3>
+      <p>¿Quieres descubrir las zonas mas románticas de tu ciudad favorita?<br>Comparte con tu pareja/familia
+      esta aventura única.</p>
+      <p>Vive tu experiencia AHORA</p>
+      <p>Reserva ahora y tendrás 20% descuento en la compra</p>
+    </article>
+  </section>
+
+<!--<%= link_to 'New City', new_city_path %>-->
+
+

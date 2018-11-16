@@ -1,0 +1,95 @@
+  <!DOCTYPE html>
+    <html>
+    <head>
+    <title>The World Traveller</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+
+    <body>
+    <header class="title">
+    <h1 class="h1title"><a><%= link_to "The World Traveller", root_path, {:class => "titulo"}%></a></h1>
+    <nav class="navBar">
+    <a><b><%= link_to "TOURS", tours_path, {:class => "tituloHeader"} %></b></a>
+    <a><b><%= link_to "CIUDADES", cities_path, {:class => "tituloHeader"} %></b></a>
+
+    <!--<div class="dropDown">
+    <button class="bottonNavBar"><b>CIUDADES</b>
+    <i class="fa fa-caret-down"></i>
+    </button>
+
+    <div class="dropDown-content">
+    <a href="ciudades/madrid.html"><b>Madrid</b></a>
+    <a href="ciudades/berlin.html"><b>Berlín</b></a>
+    <a href="ciudades/roma.html"><b>Roma</b></a>
+    <a href="ciudades/paris.html"><b>París</b></a>
+    <a href="ciudades/praga.html"><b>Praga</b></a>
+    <a href="ciudades/budapest.html"><b>Budapest</b></a>
+    <a href="ciudades/atenas.html"><b>Atenas</b></a>
+    <a href="ciudades/lisboa.html"><b>Lisboa</b></a>
+    </div>
+    </div>-->
+    <a><b><%= link_to 'EXPERIENCIAS', experiences_path, {:class => 'tituloHeader'} %></b></a>
+    <a><b><%= link_to "NOSOTROS", nosotros_index_path, {:class => "tituloHeader"} %></b></a>
+    <% if user_signed_in? %>
+    <a><b><%= link_to('CERRAR SESION', destroy_user_session_path, :class => "tituloHeaderSesion", :method => :delete) %></b></a>
+    <% else %>
+    <a><b><%= link_to "INICIAR SESION", new_user_session_path, {:class => "tituloHeaderSesion"} %></b></a>
+    <% end %>
+    </nav>
+
+
+    </header>
+                                                                       <% if user_signed_in? %>
+                                                                       <div id="dialog" title="Basic dialog">
+                                                                             <p>Bienvenido <%= current_user.email %></p>
+                                                                       </div>
+                                                                       <% end %>
+
+    <span class="up fa fa-caret-up"></span>
+
+
+    <script>
+                                                                       $( function() {
+                                                                                        $( "#dialog" ).dialog();
+                                                                                      } );
+    </script>
+
+    <script>
+    $(document).ready(function(){
+    console.log($(this).scrollTop());
+    if ($(this).scrollTop() === 0){
+    $('.up').hide();
+    }
+
+     $('.up').click(function(){
+     $('body, html').animate({
+     scrollTop: '0px'
+      }, 300);
+      });
+
+      $(window).scroll(function(){
+       if( $(this).scrollTop() > 0 ){
+        $('.up').show();
+         $('.up').slideDown(300);
+        } else {
+         $('.up').slideUp(300);
+        }
+        });
+
+      });
+     </script>
+
+
+    <%= yield %>
+
+    </body>
+    </html>

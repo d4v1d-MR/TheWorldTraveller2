@@ -1,0 +1,131 @@
+
+<%= stylesheet_link_tag    'cities', media: 'all', 'data-turbolinks-track': 'reload' %>
+<section class="portada">
+<div>
+  <img class="img-rounded" style="margin-top: 10px;
+  border-radius: 16px;
+  width: 100%;
+  height: 500px;"<%= image_tag @city.image %>
+
+  <div class="nombreCiudad" style="background-color: coral">
+  <h3 style="font-size: 43px"><%= @city.title %></h3>
+  <p><%= @city.titleInfo %></p>
+  </div>
+</div>
+</section>
+
+<section>
+  <article class="historiaCiudad">
+  <h3 style="text-align: center">¿Sabías que...?</h3>
+  <p><%= @city.texto %></p>
+  </article>
+</section>
+
+<section style="padding: inherit">
+    <div class="rowExperiencias">
+      <div class="column">
+        <div class="info">
+          <img class="img-rounded" style="width:100%; height: 200px;
+            border-radius: 50%" <%= image_tag("ocio.jpeg") %>
+            <div class="middle">
+              <div class="text"><a data-toggle="collapse" data-target="#0" style="color: black;
+                  cursor: pointer">OCIO</a></div>
+            </div>
+        </div>
+        <div id="0" class="collapse">
+          <div class="ocio"
+            style="cursor: pointer; margin-top: 5px; border: 2px solid black; border-radius: 12px">
+            <h4 style="text-align: center; color: red;">Actividades al aire libre</h4>
+              <ul>
+                <li> <%=@city.textoOcio %> </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="info">
+          <img class="img-rounded" style="width:100%; height: 200px;
+            border-radius: 50%" <%= image_tag("catedral.jpg") %>
+            <div class="middle">
+              <div class="text"><a data-toggle="collapse" data-target="#1" style="color: black;
+                  cursor: pointer">TURISMO</a></div>
+            </div>
+        </div>
+        <div id="1" class="collapse">
+          <div class="turismo"
+              style="cursor: pointer; margin-top: 5px; border: 2px solid black; border-radius: 12px">
+              <h4 style="text-align: center; color: royalblue;">Lugares para visitar</h4>
+                <ul>
+                    <% @city.tours.each do |tour| %>
+                    <li> <%= link_to tour.title, tour %> </li>
+                    <%end%>
+                </ul>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="info">
+          <img class="img-rounded" style="width:100%; height: 200px;
+            border-radius: 50%" <%= image_tag("restaurantes.jpg") %>
+            <div class="middle">
+              <div class="text"><a data-toggle="collapse" data-target="#2" style="color: black;
+                cursor: pointer">¿DÓNDE <br>
+                COMER?</a></div>
+            </div>
+        </div>
+        <div id="2" class="collapse">
+          <div class="restaurantes"
+            style="cursor: pointer; margin-top: 5px; border: 2px solid black; border-radius: 12px">
+            <h4 style="text-align: center; color: green;">Restaurantes</h4>
+          <ul>
+              <li><%= @city.textRestaurantes %></li>
+          </ul>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+      <div class="info">
+        <img class="img-rounded" style="width:100%; height: 200px;
+        border-radius: 50%" <%= image_tag("catedral.jpg") %>
+        <div class="middle">
+          <div class="text"><a data-toggle="collapse" data-target="#3" style="color: black;
+            cursor: pointer">TIEMPO</a></div>
+        </div>
+      </div>
+      <div id="3" class="collapse">
+        <div class="turismo"
+          style="cursor: pointer; margin-top: 5px; border: 2px solid black; border-radius: 12px">
+          <h4 style="text-align: center; color: black;">Previsión para la semana</h4>
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr>
+                  <td><%= @city.textoTiempo %></td>
+                  <td><span class="glyphicon glyphicon-certificate" style="font-size: 25px; color: yellow"></span></td>
+                  </tr>
+                </tbody>
+              </table
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section>
+
+<div class="someTips">
+<h3 style="text-align: center">Algunos TIPS importantes</h3>
+</div>
+
+<div>
+  <%= @city.textoExpresiones %>
+</div>
+
+<div>
+  <%= @city.textoCuidado %>
+</div>
+
+<div>
+  <%= @city.textomoneda %>
+</div>
+</section>

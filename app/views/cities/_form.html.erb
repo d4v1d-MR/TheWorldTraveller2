@@ -1,0 +1,67 @@
+<%= form_with(model: city, local: true) do |form| %>
+  <% if city.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(city.errors.count, "error") %> prohibited this city from being saved:</h2>
+
+      <ul>
+      <% city.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :titleInfo %>
+    <%= form.text_area :titleInfo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :texto %>
+    <%= form.text_area :texto %>
+  </div>
+
+  <div class="field">
+    <%= form.label :textoExpresiones %>
+    <%= form.text_field :textoExpresiones %>
+  </div>
+
+  <div class="field">
+    <%= form.label :textoCuidado %>
+    <%= form.text_field :textoCuidado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :textomoneda %>
+    <%= form.text_area :textomoneda %>
+  </div>
+
+  <div class="field">
+    <%= form.label :textoOcio %>
+    <%= form.text_field :textoOcio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :textRestaurantes %>
+    <%= form.text_field :textRestaurantes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :textoTiempo %>
+    <%= form.text_field :textoTiempo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

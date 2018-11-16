@@ -1,0 +1,27 @@
+<%= stylesheet_link_tag    'experiences', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+                                               <div class="rowExperiencias">
+    <% @experiences.each do |experience| %>
+    <div class="column">
+    <div class="infoExperiencia">
+    <%= link_to image_tag(experience.image.thumb.url, :class => "img-rounded", :style => "width: 100%"), experience %>
+    <h4><b><%= experience.title %></b></h4>
+    <p style="color: grey"><b><%= experience.name %></b></p>
+    <p><%= experience.summary %></p>
+    <br>
+    <% if user_signed_in? %>
+    <% if current_user.email == experience.name %>
+    <%= link_to 'Edit', edit_experience_path(experience) %>
+    <%= link_to 'Destroy', experience,
+    method: :delete,
+    data: {confirm: 'Are you sure?' }%>
+
+    <% end %>
+    <% end %>
+    </div>
+    </div>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= link_to 'New experience', new_experience_path %>
+    <%end%>
+      </div>

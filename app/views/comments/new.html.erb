@@ -1,0 +1,18 @@
+<div style="text-align: center">
+<%= form_with(model: [@experience, @experience.comments.new], local: true) do |form| %>
+
+                       <div class="field">
+                       <% if user_signed_in? %>
+                       <%= form.text_field :name, :value => current_user.email%>
+                       <%end%>
+                        </div>
+
+                        <div class="field">
+                       <%= form.text_area :body, placeholder: "comentario", size: "50x2"%>
+                       </div>
+
+                       <div class="actions">
+                       <%= form.submit 'Add' %>
+                       </div>
+  <% end %>
+</div>

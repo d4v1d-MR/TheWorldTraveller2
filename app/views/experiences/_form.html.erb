@@ -1,0 +1,38 @@
+<%= stylesheet_link_tag    'experiences', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  <div class="formExperience">
+<%= form_with(model: experience, local: true) do |form| %>
+  <% if experience.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(experience.errors.count, "error") %> prohibited this experience from being saved:</h2>
+
+      <ul>
+      <% experience.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_field :title, :placeholder => "Título"%>
+    <%= form.text_field :name, :value => current_user.email, :placeholder => "Autor"%>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.text_area :summary, :placeholder => "Resumen"%>
+    <%= form.text_area :body, :placeholder => "Contenido" %>
+
+  </div>
+
+  <div class="fieldImagen">
+  <%= form.file_field :image, multiple: false %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Aceptar'%>
+  </div>
+<% end %>
+</div>
